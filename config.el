@@ -9,7 +9,7 @@
 (setq user-full-name "Cp Shen"
       user-mail-address "scp@archlinuxscp.xyz")
 
-(setq doom-font (font-spec :family "Hack" :size 16 :weight 'normal))
+(setq doom-font (font-spec :family "Cascadia Code" :size 18 :weight 'normal))
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
