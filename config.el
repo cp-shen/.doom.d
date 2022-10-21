@@ -111,8 +111,8 @@
 ;;
 (map! :g "C-s" #'save-buffer)
 (map! (:when (featurep! :ui workspaces)
-       :n "M-["   #'+workspace:switch-previous
-       :n "M-]"   #'+workspace:switch-next
+       :g "M-["   #'+workspace:switch-previous
+       :g "M-]"   #'+workspace:switch-next
        :n "C-S-t" #'+workspace/new
        :n "M-t"   #'+workspace/display
        :n "C-t"   #'+workspace/display))
