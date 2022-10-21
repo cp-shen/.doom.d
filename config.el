@@ -9,7 +9,12 @@
 (setq user-full-name "Cp Shen"
       user-mail-address "scp@archlinuxscp.xyz")
 
-(setq doom-font (font-spec :family "Cascadia Code" :size 18 :weight 'normal))
+(setq doom-font (font-spec
+                 :family "CaskaydiaCove Nerd Font"
+                 :size 18 :weight 'normal))
+;; (setq doom-unicode-font doom-font)
+;; Don't set this, let unicode-fonts delects fonts for glyphs
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
