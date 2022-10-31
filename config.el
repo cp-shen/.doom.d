@@ -91,12 +91,13 @@
   (setq
    org-highest-priority ?A
    org-default-priority ?B
-   org-lowest-priority ?D)
+   org-lowest-priority ?E)
   (setq org-priority-faces
    '((?A . error)
      (?B . warning)
-     (?C . success)
-     (?D . success)))
+     (?C . warning)
+     (?D . success)
+     (?E . success)))
   (setq org-startup-folded 'content)
   (setq org-cycle-emulate-tab nil)
   (setq org-agenda-start-with-log-mode nil)
