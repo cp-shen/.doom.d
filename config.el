@@ -113,6 +113,26 @@
 (after! lsp-mode
   (setq lsp-lens-enable t))
 
+(after! org
+  ;; Ob-sagemath supports only evaluating with a session.
+  (setq org-babel-default-header-args:sage '((:session . t)
+                                          (:results . "output")))
+  ;; C-c c for asynchronous evaluating (only for SageMath code blocks).
+  ;; (with-eval-after-load "org"
+  ;; (define-key org-mode-map (kbd "C-c c") 'ob-sagemath-execute-async))
+
+  ;; Do not confirm before evaluation
+  (setq org-confirm-babel-evaluate nil)
+
+  ;; Do not evaluate code blocks when exporting.
+  (setq org-export-use-babel nil)
+
+  ;; Show images when opening a file.
+  (setq org-startup-with-inline-images t)
+
+  ;; Show images after evaluating code blocks.
+  (add-hook 'org-babel-after-execute-hook 'org-display-inline-images))
+
 ;; keybindings -----------------
 ;;
 (map! :g "C-s" #'save-buffer)
