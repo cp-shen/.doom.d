@@ -145,4 +145,6 @@
 (map! (:when (and (featurep! :tools lsp) (not (featurep! :tools lsp +eglot)))
        :leader (:prefix "c" :desc "LSP lens toggle" "L" #'lsp-lens-mode)))
 (map! (:map magit-diff-section-map
-        :g "S-<return>" #'magit-diff-visit-file-other-window))
+        :g "S-<return>" #'magit-diff-visit-file-other-window
+        :g "M-<return>" #'magit-diff-visit-file-other-window
+        ))
