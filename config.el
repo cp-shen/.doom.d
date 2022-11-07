@@ -82,6 +82,8 @@
 ;; they are implemented.
 
 (setq fancy-splash-image nil)
+(setq doom-modeline-height 18)
+(setq all-the-icons-scale-factor 1.0)
 
 (after! evil
   (setq evil-want-fine-undo t)
