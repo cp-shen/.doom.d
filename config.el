@@ -81,14 +81,24 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+
+
+
+
+;; appearance settings --------------
+;;
 (setq fancy-splash-image nil)
 (setq doom-modeline-height 18)
 (setq all-the-icons-scale-factor 1.0)
 
+;; evil settings --------------
+;;
 (after! evil
   (setq evil-want-fine-undo t)
   (setq evil-ex-substitute-global t))
 
+;; org mode settings --------------
+;;
 (after! org
   (setq
    org-highest-priority ?A
@@ -111,9 +121,6 @@
   (setq org-agenda-log-mode-items '(clock))
   (setq org-log-into-drawer t)
   (setq org-log-done 'time))
-
-(after! lsp-mode
-  (setq lsp-lens-enable t))
 
 (after! org
   ;; Ob-sagemath supports only evaluating with a session.
@@ -153,6 +160,8 @@
 
 ;; lsp settings --------------
 ;;
+(after! lsp-mode
+  (setq lsp-lens-enable t))
 (setq lsp-clients-clangd-args '("-j=3"
 				"--background-index"
 				"--clang-tidy"
