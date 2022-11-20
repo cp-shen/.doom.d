@@ -138,15 +138,25 @@
 ;; keybindings -----------------
 ;;
 (map! :g "C-s" #'save-buffer)
-(map! (:when (featurep! :ui workspaces)
+(map! (:when (modulep! :ui workspaces)
        :g "M-["   #'+workspace:switch-previous
        :g "M-]"   #'+workspace:switch-next
        :n "C-S-t" #'+workspace/new
        :n "M-t"   #'+workspace/display
        :n "C-t"   #'+workspace/display))
-(map! (:when (and (featurep! :tools lsp) (not (featurep! :tools lsp +eglot)))
+(map! (:when (and (modulep! :tools lsp) (not (modulep! :tools lsp +eglot)))
        :leader (:prefix "c" :desc "LSP lens toggle" "L" #'lsp-lens-mode)))
 (map! (:map magit-diff-section-map
         :g "S-<return>" #'magit-diff-visit-file-other-window
         :g "M-<return>" #'magit-diff-visit-file-other-window
         ))
+
+;; lsp settings --------------
+;;
+(setq lsp-clients-clangd-args '("-j=3"
+				"--background-index"
+				"--clang-tidy"
+				"--completion-style=detailed"
+				"--header-insertion=never"
+				"--header-insertion-decorators=0"))
+(after! lsp-clangd (set-lsp-priority! 'clangd 2))
