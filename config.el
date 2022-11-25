@@ -160,8 +160,28 @@
 
 ;; lsp settings --------------
 ;;
+(after! lsp-ui
+  ;; lsp-ui-doc
+  (setq lsp-ui-doc-show-with-mouse nil
+        lsp-ui-doc-show-with-cursor nil
+        lsp-ui-doc-max-height 20
+        lsp-ui-doc-max-width 100
+        lsp-ui-doc-delay 0.2
+        lsp-ui-doc-use-childframe t
+        lsp-ui-doc-use-webkit nil
+        lsp-ui-doc-position 'top))
+
 (after! lsp-mode
-  (setq lsp-lens-enable t))
+  ;; lsp lens
+  (setq lsp-lens-enable t)
+  ;; lsp eldoc
+  (setq lsp-eldoc-enable-hover t)
+  ;; lsp headerline
+  (setq lsp-headerline-breadcrumb-enable nil)
+  ;; lsp signature
+  ;; (setq lsp-signature-auto-activate nil)
+  (setq lsp-signature-render-documentation nil))
+
 (setq lsp-clients-clangd-args '("-j=3"
 				"--background-index"
 				"--clang-tidy"
