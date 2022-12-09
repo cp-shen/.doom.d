@@ -195,3 +195,14 @@
 ;;   (set-lsp-priority! 'ccls 2)) ; optional as ccls is the default in Doom
 
 (setq mpv-default-options '("--no-vid"))
+
+;; (require 'exwm)
+;; (require 'exwm-config)
+;; (require 'exwm-systemtray)
+
+;; (add-hook 'exwm-update-class-hook
+;;           (lambda ()
+;;           (exwm-workspace-rename-buffer exwm-class-name)))
+
+;; (exwm-config-example)
+;; (exwm-systemtray-enable)

@@ -52,3 +52,6 @@
 (package! sage-shell-mode)
 (package! ob-sagemath)
 (package! mpv)
+
+;; (package! exwm)
+;; (package! xelb)
