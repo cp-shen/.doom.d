@@ -51,3 +51,4 @@
 
 (package! sage-shell-mode)
 (package! ob-sagemath)
+(package! mpv)
