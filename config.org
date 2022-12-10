@@ -1,6 +1,13 @@
+#+title: Doom Emacs Config
+
+* user setting
+#+BEGIN_SRC emacs-lisp
 (setq user-full-name "Cresce Shen"
       user-mail-address "scp@archlinuxscp.dev")
+#+END_SRC
 
+* UI and appearance
+#+BEGIN_SRC emacs-lisp
 (setq doom-font (font-spec
                  :family "CaskaydiaCove Nerd Font"
                  :size 18 :weight 'normal))
@@ -11,9 +18,19 @@
 (setq fancy-splash-image nil)
 (setq doom-modeline-height 18)
 (setq all-the-icons-scale-factor 1.0)
+#+END_SRC
 
+* ~mpv.el~ to play music
+#+BEGIN_SRC emacs-lisp :tangle packages.el
+(package! mpv)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
 (setq mpv-default-options '("--no-vid"))
+#+END_SRC
 
+* org mode config to make life easier
+#+BEGIN_SRC emacs-lisp
 (setq org-directory "~/org/")
 
 (after! org
@@ -39,6 +56,15 @@
   (setq org-log-into-drawer t)
   (setq org-log-done 'time))
 
+#+END_SRC
+
+* Sage math support for org babel
+#+BEGIN_SRC emacs-lisp :tangle packages.el
+(package! sage-shell-mode)
+(package! ob-sagemath)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
 (after! org
   ;; Ob-sagemath supports only evaluating with a session.
   (setq org-babel-default-header-args:sage '((:session . t)
@@ -58,11 +84,17 @@
 
   ;; Show images after evaluating code blocks.
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images))
+#+END_SRC
 
+* ~evil~ config to enhance editing experience
+#+BEGIN_SRC emacs-lisp
 (after! evil
   (setq evil-want-fine-undo t)
   (setq evil-ex-substitute-global t))
+#+END_SRC
 
+* custom key bindings
+#+BEGIN_SRC emacs-lisp
 (map! :g "C-s" #'save-buffer)
 (map! (:when (modulep! :ui workspaces)
        :g "M-["   #'+workspace:switch-previous
@@ -76,7 +108,10 @@
         :g "S-<return>" #'magit-diff-visit-file-other-window
         :g "M-<return>" #'magit-diff-visit-file-other-window
         ))
+#+END_SRC
 
+* LSP config for programming
+#+BEGIN_SRC emacs-lisp
 (after! lsp-ui
   ;; lsp-ui-doc
   (setq lsp-ui-doc-show-with-mouse nil
@@ -110,3 +145,23 @@
 ;; (after! ccls
 ;;   (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
 ;;   (set-lsp-priority! 'ccls 2)) ; optional as ccls is the default in Doom
+#+END_SRC
+
+* EXWM config (not usable currently)
+#+BEGIN_SRC emacs-lisp :tangle no
+(package! exwm)
+(package! xelb)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :tangle no
+(require 'exwm)
+(require 'exwm-config)
+(require 'exwm-systemtray)
+
+(add-hook 'exwm-update-class-hook
+          (lambda ()
+          (exwm-workspace-rename-buffer exwm-class-name)))
+
+(exwm-config-example)
+(exwm-systemtray-enable)
+#+END_SRC
