@@ -26,7 +26,7 @@
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
-(setq mpv-default-options '("--no-vid"))
+(setq mpv-default-options '("--no-vid" "--shuffle"))
 #+END_SRC
 
 * org mode config to make life easier

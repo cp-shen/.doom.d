@@ -12,7 +12,7 @@
 (setq doom-modeline-height 18)
 (setq all-the-icons-scale-factor 1.0)
 
-(setq mpv-default-options '("--no-vid"))
+(setq mpv-default-options '("--no-vid" "--shuffle"))
 
 (setq org-directory "~/org/")
 
