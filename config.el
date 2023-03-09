@@ -76,6 +76,7 @@
         :g "S-<return>" #'magit-diff-visit-file-other-window
         :g "M-<return>" #'magit-diff-visit-file-other-window
         ))
+(map! (:map  vterm-mode-map "C-M-]"  nil "M-]" nil))
 
 (after! lsp-ui
   ;; lsp-ui-doc
