@@ -166,3 +166,12 @@
 (exwm-config-example)
 (exwm-systemtray-enable)
 #+END_SRC
+
+* Nix Language Support
+#+BEGIN_SRC emacs-lisp
+
+(after! lsp-nix
+  (setq lsp-nix-nil-formatter ["nixfmt"]
+        lsp-nix-nil-server-path "nil"))
+
+#+END_SRC
