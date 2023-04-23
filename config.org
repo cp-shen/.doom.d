@@ -171,7 +171,7 @@
 #+BEGIN_SRC emacs-lisp
 
 (after! lsp-nix
-  (setq lsp-nix-nil-formatter ["nixfmt"]
+  (setq lsp-nix-nil-formatter ["nixpkgs-fmt"]
         lsp-nix-nil-server-path "nil"))
 
 #+END_SRC
