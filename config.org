@@ -142,6 +142,10 @@
 				"--header-insertion=never"
 				"--header-insertion-decorators=0"))
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
+(after! lsp-rust (setq lsp-rust-analyzer-server-display-inlay-hints t)
+    (add-hook 'lsp-after-open-hook (lambda ()
+                                 (when (lsp-find-workspace 'rust-analyzer nil)
+                                   (lsp-rust-analyzer-inlay-hints-mode)))))
 
 ;; (after! ccls
 ;;   (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
